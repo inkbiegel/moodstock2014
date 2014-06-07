@@ -39,17 +39,71 @@ html,body {
   height: 100%;
 }
 html {
-  font: 100%/1.33 sans-serif;
+  font: 100%/1.5 'Quadon', sans-serif;
+  color: #672c87;
 }
-body { background: #cbc8c7; }
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 200px 0 0;
-}
+body { background: #f7f7f7 url(../img/bg/body-rpt.png) repeat 0 0; }
 figure { margin: 0; }
+h2 {
+  font: bold 2em/1 'Quadon', serif;
+  margin: 0 0 1.25em;
+}
+p {
+  margin: 0 0 1em;
+  font-size: 1.1em;
+}
 
 /********** RECURRING ELEMENTS **********/
+main, #siteHeader {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+main {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 2.5%;
+}
+#siteHeader {
+  position: relative;
+  height: 250px;
+  padding: 50px 0 0 100px;
+  margin-bottom: 75px;
+  /*background: url(../img/bg/header-greyscale.svg) no-repeat 0 -2px;
+  -webkit-background-size: contain;
+  background-size: contain;*/
+}
+#siteHeader:before {
+  content: '';
+  display: block;
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  z-index: -1;
+  left: 10px; top: 10px;
+  background: url(../img/bg/icosahedron.svg) no-repeat 0 0;
+  -webkit-background-size: contain;
+  background-size: contain;
+
+}
+#siteHeader > h1 {
+  height: 175px;
+  background: url(../img/bg/siteheader-title.svg) no-repeat 0 0;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+
+.content {
+  height: 500px;
+/*  background: -moz-linear-gradient(left,  rgba(247,247,247,0) 0%, rgba(247,247,247,0) 1%, rgba(247,247,247,1) 10%, rgba(247,247,247,1) 50%, rgba(247,247,247,1) 90%, rgba(247,247,247,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(247,247,247,0)), color-stop(1%,rgba(247,247,247,0)), color-stop(10%,rgba(247,247,247,1)), color-stop(50%,rgba(247,247,247,1)), color-stop(90%,rgba(247,247,247,1)), color-stop(100%,rgba(247,247,247,0)));
+  background: -webkit-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 10%,rgba(247,247,247,1) 50%,rgba(247,247,247,1) 90%,rgba(247,247,247,0) 100%);
+  background: -o-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 10%,rgba(247,247,247,1) 50%,rgba(247,247,247,1) 90%,rgba(247,247,247,0) 100%);
+  background: -ms-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 10%,rgba(247,247,247,1) 50%,rgba(247,247,247,1) 90%,rgba(247,247,247,0) 100%);
+  background: linear-gradient(to right,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 10%,rgba(247,247,247,1) 50%,rgba(247,247,247,1) 90%,rgba(247,247,247,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f7f7f7', endColorstr='#00f7f7f7',GradientType=1 );
+*/}
+
 .hexOuter, .hexInner, .hex {
   overflow: hidden;
 }
@@ -203,9 +257,9 @@ figure { margin: 0; }
 
 /********** HELPER CLASSES **********/
 /* image replacement */
-.artistLinks > li > a {
+.artistLinks > li > a, h1 {
   white-space: nowrap;
-  text-indent: 100%;
+  text-indent: 150%;
   overflow: hidden;
 }
 /* clearfix */
