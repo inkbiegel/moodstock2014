@@ -79,6 +79,10 @@ main, #siteNav {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+  /* fix for webkit jitter when other elements transition
+  -webkit-transform: translate3d(-50%,0,0);
+  -ms-transform: translate3d(-50%,0,0);
+  transform: translate3d(-50%,0,0);*/
   background: rgba(255,255,255,0.75);
 }
 .msLogo > span, .msLogo > strong {
@@ -287,11 +291,12 @@ main, #siteNav {
 }
 .hexGrid > li {
   float: left;
-  margin: 0 0 -4.05em;
+  margin: 0 0 -3.25em 0.8583em;
 }
+.hexGrid > li:nth-child(9n+1) { margin-left: 0; }
 .hexGrid > li:nth-child(9n+6) {
   clear: left;
-  margin-left: 7.05em;
+  margin-left: 7.5em;
 }
 
 .hexOuter, .hexInner, .hex {
@@ -313,6 +318,36 @@ main, #siteNav {
   -moz-transform: rotate(-60deg);
   -o-transform: rotate(-60deg);
   transform: rotate(-60deg);
+}
+
+
+.hexSimple {
+  width: 226px;
+  height: 130px;
+  background: #fff;
+  position: relative;
+}
+.hexSimple:before {
+  content: "";
+  position: absolute;
+  top: -57px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 113px solid transparent;
+  border-right: 113px solid transparent;
+  border-bottom: 57px solid #fff;
+}
+.hexSimple:after {
+  content: "";
+  position: absolute;
+  bottom: -57px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 113px solid transparent;
+  border-right: 113px solid transparent;
+  border-top: 57px solid #fff;
 }
 
 .artistOuter {
@@ -454,11 +489,42 @@ main, #siteNav {
 }
 
 /********** PAGE SPECIFIC *********
+/* partners */
+.partner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.partner, .partner:before, .partner:after {
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+.partner:hover { background: #672c87; }
+.partner:hover:before { border-bottom-color: #672c87; }
+.partner:hover:after { border-top-color: #672c87; }
+.partner:hover > .partnerLogo {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.partnerLogo {
+  display: inline-block;
+  background-image: url(../img/bg/sprite-partner-logos.png);
+  background-repeat: no-repeat;
+  -webkit-transition: -webkit-transform 0.25s ease-in;
+  transition: transform 0.25s ease-in;
+}
+.large > .partnerLogo { width: 125px; }
+  #cristal { height: 108px; background-position: 0 0; }
+  #cocaCola { height: 125px; background-position: 0 -110px; }
+  #vanduffel { height: 125px; background-position: 0 -237px; }
+  #jnsBanden { height: 34px; background-position: 0 -364px; }
+
 
 
 /********** HELPER CLASSES **********/
 /* image replacement */
-.artistLinks > li > a {
+.artistLinks > li > a, .partnerLogo {
   white-space: nowrap;
   text-indent: 150%;
   overflow: hidden;
