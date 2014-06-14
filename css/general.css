@@ -51,7 +51,7 @@ p {
 
 /********** RECURRING ELEMENTS **********/
 main, #siteNav {
-  max-width: 1280px;
+  max-width: 960px;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -228,9 +228,7 @@ main, #siteNav {
   -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
-#siteNav a:hover, #siteNav .active {
-  color: #ed008c;
-}
+#siteNav a:hover, #siteNav .active { color: #ed008c; }
 #siteNav a > span {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
@@ -285,10 +283,7 @@ main, #siteNav {
   margin: 0 0 1.125em;
 }
 
-.hexGrid {
-  list-style: none;
-  text-align: center;
-}
+.hexGrid, .hexSimpleGrid { list-style: none; }
 .hexGrid > li {
   float: left;
   margin: 0 0 -3.25em 0.8583em;
@@ -320,34 +315,61 @@ main, #siteNav {
   transform: rotate(-60deg);
 }
 
-
 .hexSimple {
-  width: 226px;
-  height: 130px;
+  width: 12.5em;
+  height: 7.125em;
   background: #fff;
   position: relative;
 }
 .hexSimple:before {
   content: "";
   position: absolute;
-  top: -57px;
+  top: -3.125em;
   left: 0;
   width: 0;
   height: 0;
-  border-left: 113px solid transparent;
-  border-right: 113px solid transparent;
-  border-bottom: 57px solid #fff;
+  border-left: 6.25em solid transparent;
+  border-right: 6.25em solid transparent;
+  border-bottom: 3.125em solid #fff;
 }
 .hexSimple:after {
   content: "";
   position: absolute;
-  bottom: -57px;
+  bottom: -3.125em;
   left: 0;
   width: 0;
   height: 0;
-  border-left: 113px solid transparent;
-  border-right: 113px solid transparent;
-  border-top: 57px solid #fff;
+  border-left: 6.25em solid transparent;
+  border-right: 6.25em solid transparent;
+  border-top: 3.125em solid #fff;
+}
+.hexSimple.small {
+  width: 9.375em;
+  height: 5.34375em;
+  background: #fff;
+  position: relative;
+}
+.hexSimple.small:before {
+  content: "";
+  position: absolute;
+  top: -2.34375em;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 4.6875em solid transparent;
+  border-right: 4.6875em solid transparent;
+  border-bottom: 2.34375em solid #fff;
+}
+.hexSimple.small:after {
+  content: "";
+  position: absolute;
+  bottom: -2.34375em;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 4.6875em solid transparent;
+  border-right: 4.6875em solid transparent;
+  border-top: 2.34375em solid #fff;
 }
 
 .artistOuter {
@@ -490,11 +512,32 @@ main, #siteNav {
 
 /********** PAGE SPECIFIC *********
 /* partners */
-.partner {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+.partnerGrid > li { float: left; }
+
+.partnerGrid.large { margin: 0 0 8em 0; }
+.partnerGrid.large > li {
+  height: 7.125em;
+  padding: 3.125em 0;
+  margin: 0 0 -2em 1.3525em;
 }
+.partnerGrid.large > li:nth-child(4n+1) { margin-left: 0; }
+.partnerGrid.large > li:nth-child(4n+5) { margin-left: 6.92625em; }
+.partnerGrid.large > li:nth-child(4){ margin-left: 6.92625em; }
+.partnerGrid.large > li:nth-child(4n+5) {
+  clear: none;
+  margin-left: 1.3525em;
+}
+
+.partnerGrid.small { margin: 0 0 6em 0; }
+.partnerGrid.small > li {
+  height: 5.34375em;
+  padding: 2.34374em 0;
+  margin: 0 0 -1.5em 1.014375em;
+}
+.partnerGrid.small > li:nth-child(5){ margin-left: 6.92625em; }
+
+
+.partner { display: block; }
 .partner, .partner:before, .partner:after {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -503,22 +546,41 @@ main, #siteNav {
 .partner:hover:before { border-bottom-color: #672c87; }
 .partner:hover:after { border-top-color: #672c87; }
 .partner:hover > .partnerLogo {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: translate(-50%,-50%) scale(1.05);
+  -ms-transform: translate(-50%,-50%) scale(1.05);
+  transform: translate(-50%,-50%) scale(1.05);
 }
 .partnerLogo {
-  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   background-image: url(../img/bg/sprite-partner-logos.png);
   background-repeat: no-repeat;
   -webkit-transition: -webkit-transform 0.25s ease-in;
   transition: transform 0.25s ease-in;
+  z-index: 1;
 }
-.large > .partnerLogo { width: 125px; }
-  #cristal { height: 108px; background-position: 0 0; }
-  #cocaCola { height: 125px; background-position: 0 -110px; }
-  #vanduffel { height: 125px; background-position: 0 -237px; }
-  #jnsBanden { height: 34px; background-position: 0 -364px; }
+.large > .partnerLogo { height: 114px; }
+  #cristal { height: 101px; width: 117px; background-position: 0 0; }
+  #cocaCola { width: 114px; background-position: 0 -110px; }
+  #vanduffel { width: 115px; background-position: 0 -226px; }
+  #jnsBanden { height: 41px; width: 150px; background-position: 0 -446px; }
+  #senorSnacks { height: 101px; width: 125px; background-position: 0 -342px; }
+  #vanReusel { width: 114px; background-position: -130px 0; }
+.small > .partnerLogo { height: 76px; }
+  #airLonden { width: 68px; background-position: -130px -116px; }
+  #mobilee { width: 76px; background-position: -130px -194px; }
+  #provLimburg { width: 110px; height: 43px; background-position: -130px -272px; }
+  #stadPeer { width: 110px; height: 45px; background-position: -130px -318px; }
+  #kbc { width: 86px; height: 67px; background-position: -130px -365px; }
+  #winters { width: 104px; height: 53px; background-position: -255px 0; }
+  #deJong { width: 80px; background-position: -255px -57px; }
+  #fun4You { width: 110px; height: 36px; background-position: -255px -137px; }
+  #q8 { width: 95px; height: 71px; background-position: -255px -177px; }
+  #hoendrik { width: 100px; height: 71px; background-position: -255px -252px; }
 
 
 
@@ -530,9 +592,9 @@ main, #siteNav {
   overflow: hidden;
 }
 /* clearfix */
-.hexGrid:before, .hexGrid:after {content: " "; display: table; }
-.hexGrid:after { clear: both; }
-.lt-ie8 .hexGrid { zoom: 1; }
+.hexGrid:before, .hexGrid:after, .hexSimpleGrid:before, .hexSimpleGrid:after {content: " "; display: table; }
+.hexGrid:after, .hexSimpleGrid:after { clear: both; }
+.lt-ie8 .hexGrid, .lt-ie8 .hexSimpleGrid { zoom: 1; }
 
 
 /********** MEDIA QUERIES **********/
