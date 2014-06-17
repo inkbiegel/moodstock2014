@@ -73,7 +73,7 @@ main, .inner {
 .socialLinks { list-style: none; }
 .socialLinks > li {
   float: right;
-  margin: 0 0.5em 0 0;
+  margin: 0 0.625em 0 0;
 }
 .socialLinks > li:first-child { margin: 0; }
 .socialLinks > li > a {
@@ -85,6 +85,7 @@ main, .inner {
 }
 .socialLinkFb { background-position: 0 -70px; }
 .socialLinkSc { background-position: -20px -70px; }
+.socialLinkRA { background-position: -40px -70px; }
 
 #siteHeader {
   background: #ab58cb;
@@ -105,9 +106,11 @@ main, .inner {
 
 .msLogo {
   position: relative;
+  display: inline-block;
   font-size: 3.5rem;
   text-transform: uppercase;
   line-height: 1;
+  text-align: left;
   color: #010101;
 }
 .msLogo:after {
@@ -128,6 +131,10 @@ main, .inner {
   display: inline-block;
   margin-bottom: 10px;
 }
+/*.msLogoName, .msLogoNr, .msLogoDesc, .msLogoPlace {
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}*/
 .msLogoName, .msLogoNr, .msLogoDesc { background: #fff; }
 .msLogoNr, .msLogoDesc { text-transform: none; font-weight: normal; }
 .msLogoNr {
@@ -163,62 +170,159 @@ main, .inner {
   margin-left: 8.25em;
   z-index: 2;
 }
+.msLogoDate {
+  margin-left: 0.925em;
+  font-size: 0.425em;
+  line-height: 0.9;
+  color: #672c87;
+}
+.msLogoDate > span {
+  font-size: 0.75em;
+  margin-left: 1.175em;
+}
+.msLogoPlace {
+  top: -3.25em;
+  padding: 0.3em 0.5em;
+  margin-left: 13em;
+  background: #672c87;
+  font-size: 0.275em;
+  color: #fff;
+}
 
+/* animation: alles traag in laten komen en dan ineens versnellen naar eindpositie logo en dan "ontploffen" de links er uit en komt de duif in; */
+/*.msLogoAnimStep0 > span, .msLogoAnimStep0 > strong*/
+.cssanimations .msLogoAnimStep0 > .msLogoNr, .cssanimations .msLogoAnimStep0 > .msLogoNr > span, .cssanimations .msLogoAnimStep0 > .msLogoDate, .cssanimations .msLogoAnimStep0 > .msLogoName, .cssanimations .msLogoAnimStep0 > .msLogoDesc  {
+  opacity: 0;
+}
+.msLogoAnimStep0 > .msLogoNr {
+  -webkit-animation: slideFadeInRight 0.5s 1s ease-out forwards;
+  animation: slideFadeInRight 0.5s 1s ease-out forwards;
+}
+.msLogoAnimStep0 > .msLogoNr > span {
+  -webkit-animation: dropInTop 0.5s 1s ease-out forwards;
+  animation: dropInTop 0.5s 1s ease-out forwards;
+}
+.msLogoAnimStep0 > .msLogoName {
+  -webkit-animation: slideFadeInLeft 1s 1.5s ease-out forwards;
+  animation: slideFadeInLeft 1s 1.5s ease-out forwards;
+}
+.msLogoAnimStep0 > .msLogoDesc {
+  -webkit-animation: slideFadeInRight 1s 2s ease-out forwards;
+  animation: slideFadeInRight 1s 2s ease-out forwards;
+}
+.msLogoAnimStep0 .msLogoDate {
+  -webkit-animation: slideFadeInLeft 0.75s 2.5s ease-out forwards;
+  animation: slideFadeInLeft 0.75s 2.5s ease-out forwards;
+}
 
 @-webkit-keyframes slideFadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-1em);
+    -ms-transform: translateX(-1em);
+    transform: translateX(-1em);
   }
 
   33% {
-    opacity: 25;
-    -webkit-transform: translateX(33%);
-    -ms-transform: translateX(33%);
-    transform: translateX(33%);
-  }
-
-  66% {
-    opacity: 100;
-    -webkit-transform: translateX(33%);
-    -ms-transform: translateX(33%);
-    transform: translateX(33%);
+    opacity: 1;
   }
 
   100% {
-    -webkit-transform: translateX(34%);
-    -ms-transform: translateX(34%);
-    transform: translateX(34%);
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @keyframes slideFadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-1em);
+    -ms-transform: translateX(-1em);
+    transform: translateX(-1em);
   }
 
   33% {
-    opacity: 25;
-    -webkit-transform: translateX(33%);
-    -ms-transform: translateX(33%);
-    transform: translateX(33%);
-  }
-
-  66% {
-    opacity: 100;
-    -webkit-transform: translateX(33%);
-    -ms-transform: translateX(33%);
-    transform: translateX(33%);
+    opacity: 1;
   }
 
   100% {
-    -webkit-transform: translateX(34%);
-    -ms-transform: translateX(34%);
-    transform: translateX(34%);
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideFadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(1em);
+    transform: translateX(1em);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slideFadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(1em);
+    transform: translateX(1em);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes dropInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-3em);
+    -ms-transform: translateY(-3em);
+    transform: translateY(-3em);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes dropInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-3em);
+    -ms-transform: translateY(-3em);
+    transform: translateY(-3em);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -288,7 +392,7 @@ main, .inner {
 }
 
 /* content */
-.content { padding: 0 0 10em; }
+.content { padding: 0 0 7.5em; }
 .content h1 {
   font-size: 2.5em;
   line-height: 1.2;
@@ -298,6 +402,9 @@ main, .inner {
   font-size: 1.75em;
   margin: 0 0 1em;
 }
+.content strong, .content a:link { color: #ed008c; }
+.content a:link { text-decoration: underline; }
+.content a:hover { text-decoration: none; }
 
 .hexGrid, .hexSimpleGrid { list-style: none; }
 .hexGrid > li, .hexSimpleGrid > li { float: left; }
@@ -420,11 +527,23 @@ main, .inner {
   border-top: 2.25em solid #fff;
 }
 .hexSimple.small > .hexSimpleInner { font-size: 0.68em; }
-.hexSimple.small > .hexSimpleInner:before { top: -3.05em; }
-.hexSimple.small > .hexSimpleInner:after { bottom: -3.05em; }
 
 
 /********** PAGE SPECIFIC *********
+/* homepage */
+#home > main {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+#intro {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+#home .msLogo { font-size: 5em; }
+
+
 /* line-up */
 .artistOuter {
   position: relative;
