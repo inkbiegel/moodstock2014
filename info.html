@@ -23,7 +23,7 @@
   </div>
   <header id="siteHeader">
     <div class="inner">
-      <h1 class="msLogo">
+      <h1 class="msLogo hasBg">
         <span class="msLogoNr"><span>7</span>th</span><br>
         <strong class="msLogoName">Moodstock</strong><br>
         <span class="msLogoDesc">electronic <strong>music festival</strong></span>
@@ -32,7 +32,7 @@
         <ul>
           <li><a href="index.html"><span>Home</span></a></li>
           <li><a href="line-up.html"><span>Line up</span></a></li>
-          <li><a href="info.html" class="active"><span>Info</span></a></li>
+          <li><a href="info.html#info" class="active"><span>Info</span></a></li>
           <li><a href="tickets.html"><span>Tickets</span></a></li>
           <li><a href="partners.html"><span>Partners</span></a></li>
         </ul>
@@ -40,11 +40,27 @@
     </div>
   </header>
   <main role="main">
-    <article class="content">
-      <h1>Festival info</h1>
-      <p>Op <strong>zaterdag 9 augusutus 2014</strong> vindt de 7de edtitie van het <strong>Electronic Music Festival</strong> plaats op onze vertrouwde festivalweide aan de <strong>Dijkerstraat</strong> in <strong>Wijchmaal-Peer</strong>.</p>
-      <h2>Openingstijden</h2>
-
+    <article id="infoPage" class="content">
+      <ul class="pageNav">
+        <li><a href="#info" class="hexSimple hexTxt small pink"><span class="hexTxtContent">Info</span><span class="hexSimple hexSimpleInner"></span></a></li>
+        <li><a href="#rules" class="hexSimple hexTxt small pink"><span class="hexTxtContent">Reglement</span><span class="hexSimple hexSimpleInner"></span></a></li>
+      </ul>
+      <section class="pageNavSection" id="info">
+        <h1>Festival info</h1>
+        <p>Op <strong>zaterdag 9 augusutus 2014</strong> vindt de 7de edtitie van het <strong>Electronic Music Festival</strong> plaats op onze vertrouwde festivalweide aan de <strong>Dijkerstraat</strong> in <strong>Wijchmaal-Peer</strong>.</p>
+        <h2>Openingstijden</h2>
+        <ul class="defList">
+          <li><strong>Start</strong>: Het festival opent zijn deuren om <strong>14u</strong>.</li>
+          <li><strong>Einde</strong>: Na <strong>3u00</strong> wordt er geen muziek meer gespeeld en kan de terugtocht worden ingezet.</li>
+        </ul>
+        <h2>Locatie</h2>
+        <div id="gmap"></div>
+      </section>
+      <section class="pageNavSection" id="rules">
+        <h1>Festival reglement</h1>
+        <p>Op <strong>zaterdag 9 augusutus 2014</strong> vindt de 7de edtitie van het <strong>Electronic Music Festival</strong> plaats op onze vertrouwde festivalweide aan de <strong>Dijkerstraat</strong> in <strong>Wijchmaal-Peer</strong>.</p>
+        <h2>Openingstijden</h2>
+      </section>
     </article>
   </main>
   <footer>
@@ -52,6 +68,8 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>if (typeof jQuery == 'undefined') {document.write(unescape("%3Cscript src='js/jquery-1.11.0.min.js' type='text/javascript'%3E%3C/script%3E")); }</script>
   <script src="js/plugins.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNvsP8sGCtsJ4AIJXdai4VaTPozp5WeG4"></script>
   <script src="js/general.js"></script>
+  <script>google.maps.event.addDomListener(window, 'load', setGmap);</script>
 </body>
 </html>
