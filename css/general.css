@@ -45,8 +45,23 @@ html {
 body { background: #f7f7f7 url(../img/bg/body-rpt.png) repeat 0 0; }
 figure { margin: 0; }
 p {
-  margin: 0 0 1em;
+  margin: 0 0 1.25em;
   font-size: 1.1em;
+}
+table { margin: 0 0 1em; }
+table thead th {
+  padding: 0.25em 0;
+  border-top: 1px solid #672c87;
+  border-bottom: 1px solid #672c87;
+}
+table tbody th {
+  padding: 0.35em 0 0.35em 1em;
+  border-bottom: 1px solid #ed008c;
+  color: #ed008c;
+  text-align: left;
+}
+table td {
+  padding: 0.5em 1em;
 }
 
 /********** RECURRING ELEMENTS **********/
@@ -692,20 +707,22 @@ main, .inner {
 .content h1 {
   font-size: 2.5em;
   line-height: 1.2;
-  margin: 0 0 1.125em;
+  margin: 0 0 0.75em;
 }
 .content h2 {
   font-size: 1.75em;
-  margin: 0 0 1em;
+  margin: 0 0 0.5em;
 }
-.content strong, .content a:link { color: #ed008c; }
-.content a:link { text-decoration: underline; }
+.content strong, .content a { color: #ed008c; }
+.content a { text-decoration: underline; }
 .content a:hover { text-decoration: none; }
 .defList { margin: 0 0 1em; }
 .defList > li {
   position: relative;
   padding: 0 0 0 1.4em;
+  margin: 0 0 0.75em;
   list-style: none;
+  font-size: 1.1em;
 }
 .defList > li:before {
   content: '';
@@ -714,9 +731,11 @@ main, .inner {
   width: 7px;
   position: absolute;
   left: 0.4em;
-  top: 0.4em;
+  top: 0.5em;
   background: url(../img/bg/sprite.png) no-repeat 0 -60px;
 }
+.defList > li ul { margin-top: 0.75em; }
+.defList > li li { font-size: 1em; }
 
 /* HEXES */
 /* grids */
@@ -1112,14 +1131,15 @@ main, .inner {
 
 /* info */
 #infoPage { position: relative; }
-.pageNav { list-style: none; text-align: center; margin: -3em 0 4em; }
+.pageNav { list-style: none; text-align: center; margin: -4em 0 0; }
 .pageNav > li { display: inline-block; }
 .pageNav > li:first-child { margin: 0 1em 0 0; }
 .pageNav .hexTxt { margin: 2.25em 0; }
 .pageNav .hexTxtContent { font: bold 1.25em/1 'Quadon', serif; }
 .pageNavSection {
   position: absolute;
-  top: 15em;
+  top: 13em;
+  padding: 0 0 5em;
   opacity: 0;
   -webkit-transform: translateX(-70%) scale(0.4);
   -ms-transform: translateX(-70%) scale(0.4);
@@ -1127,11 +1147,22 @@ main, .inner {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-#info:target, #rules:target {
+.pageNavSection.active {
   opacity: 1;
   -webkit-transform: translateX(0) scale(1);
   -ms-transform: translateX(0) scale(1);
   transform: translateX(0) scale(1);
+}
+#gmapFig { margin: 0 0 1em; }
+#gmap {
+  height: 20em;
+  width: 100%;
+}
+#gmap + figcaption { margin: 0 0 0 1.5em; }
+#gmap + figcaption > span {
+  color: #ed008c;
+  position: relative;
+  top: -0.4em;
 }
 
 /* partners */

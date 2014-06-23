@@ -32,7 +32,7 @@
         <ul>
           <li><a href="index.html"><span>Home</span></a></li>
           <li><a href="line-up.html"><span>Line up</span></a></li>
-          <li><a href="info.html#info" class="active"><span>Info</span></a></li>
+          <li><a href="info.html" class="active"><span>Info</span></a></li>
           <li><a href="tickets.html"><span>Tickets</span></a></li>
           <li><a href="partners.html"><span>Partners</span></a></li>
         </ul>
@@ -42,10 +42,10 @@
   <main role="main">
     <article id="infoPage" class="content">
       <ul class="pageNav">
-        <li><a href="#info" class="hexSimple hexTxt small pink"><span class="hexTxtContent">Info</span><span class="hexSimple hexSimpleInner"></span></a></li>
-        <li><a href="#rules" class="hexSimple hexTxt small pink"><span class="hexTxtContent">Reglement</span><span class="hexSimple hexSimpleInner"></span></a></li>
+        <li><a href="#info" class="hexSimple hexTxt small pink active" data-link="1"><span class="hexTxtContent">Info</span><span class="hexSimple hexSimpleInner"></span></a></li>
+        <li><a href="#rules" class="hexSimple hexTxt small pink" data-link="2"><span class="hexTxtContent">Reglement</span><span class="hexSimple hexSimpleInner"></span></a></li>
       </ul>
-      <section class="pageNavSection" id="info">
+      <section class="pageNavSection active" id="info">
         <h1>Festival info</h1>
         <p>Op <strong>zaterdag 9 augusutus 2014</strong> vindt de 7de edtitie van het <strong>Electronic Music Festival</strong> plaats op onze vertrouwde festivalweide aan de <strong>Dijkerstraat</strong> in <strong>Wijchmaal-Peer</strong>.</p>
         <h2>Openingstijden</h2>
@@ -54,12 +54,72 @@
           <li><strong>Einde</strong>: Na <strong>3u00</strong> wordt er geen muziek meer gespeeld en kan de terugtocht worden ingezet.</li>
         </ul>
         <h2>Locatie</h2>
-        <div id="gmap"></div>
+        <figure id="gmapFig">
+          <div id="gmap"></div>
+          <figcaption><span>▲</span> Klik hierboven op het logo van Google om je route te berekenen met Google Maps</figcaption>
+        </figure>
+        <h2>Transport</h2>
+        <h3>Fiets</h3>
+        <p>Tegenover de festivalweide wordt een gratis fietsenstalling voorzien. Het stationeren van je fiets is op eigen risico. Vergeet je fietsslot niet!</p>
+        <h3>Bus</h3>
+        <p>Festivalbezoekers kunnen gebruikmaken van de buslijn 18a (via Wijchmaal) en de buslijn 302. Let wel, deze buslijnen volgen de gebruikelijke dienstregelingen en rijden dan ook niet ’s nachts. Voor meer info kan je terecht op de <a href="http://reisinfo.delijn.be/reisinfo/" target="_blank">routeplanner van De Lijn</a>.</p>
+        <h3>Auto</h3>
+        <p>Parkeren op Moodstock is gratis. Er worden voldoende parkeermogelijkheden voorzien in de nabije omgeving van het festival. Gelieve de richtingaanwijzers en de aanwijzingen van de parkeerwachters op te volgen.</p>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="3">Afstanden</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>BE</th>
+              <th>NL</th>
+              <th>DE</th>
+            </tr>
+            <tr>
+              <td>Antwerpen – 80km</td>
+              <td>Weert – 30km</td>
+              <td>Aachen – 80km</td>
+            </tr>
+            <tr>
+              <td>Luik – 80km</td>
+              <td>Eindhoven – 40km</td>
+              <td>Möngengladbach – 80km</td>
+            </tr>
+            <tr>
+              <td>Brussel – 100km</td>
+              <td>Maastricht – 50km</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Verloren voorwerpen</h2>
+        <p>Verloren voorwerpen worden na het festival verzameld bij de politiezone Kempenland (afdeling Peer). De dienst is telefonisch bereikbaar op het nummer <a href="tel:+3211610370">011/61.03.70</a>.</p>
       </section>
       <section class="pageNavSection" id="rules">
         <h1>Festival reglement</h1>
-        <p>Op <strong>zaterdag 9 augusutus 2014</strong> vindt de 7de edtitie van het <strong>Electronic Music Festival</strong> plaats op onze vertrouwde festivalweide aan de <strong>Dijkerstraat</strong> in <strong>Wijchmaal-Peer</strong>.</p>
-        <h2>Openingstijden</h2>
+        <p>Alle bezoekers verklaren zich bij aankoop van een inkomticket akkoord met het festivalreglement. Wie de regels overtreedt kan de toegang tot het festivalterrein worden geweigerd. Tickets worden niet terugbetaald.</p>
+        <ul class="defList">
+          <li>Bij het betreden van het festivalterrein zal je mogelijk afgetast worden.</li>
+          <li>Drank en voedsel zijn verkrijgbaar op het festivalterrein. Het is dan ook ten strengste verboden om eigen drank of voedsel mee te brengen. (Uitzonderingen om medische redenen buiten beschouwing gelaten).</li>
+          <li>Eveneens niet toegelaten zijn:
+            <ul class="defList">
+              <li>Dieren (met uitzondering van assistentiehonden voor personen met een handicap).</li>
+              <li>Wapens, scherpe voorwerpen en elk ander voorwerp dat door de organisatie als gevaarlijk kan worden beschouwd.</li>
+              <li>Professioneel audiovisueel materiaal.</li>
+              <li>Alle hard- &amp; softdrugs.</li>
+            </ul>
+          </li>
+          <li>Geweld op het festivalterrein wordt niet geduld!</li>
+          <li>Gedurende het festival werken wij met “mensen”. Verbale en non-verbale beledegingen ten aanzien van onze medewerkers worden niet geduld.</li>
+          <li>Roken in de tenten is niet toegestaan.</li>
+          <li>Het verbranden van papier en ander afval is ten strengste verboden. Je brengt er niet alleen jezelf, maar ook de andere festivalgangers mee in gevaar.</li>
+          <li>Het Moodstock Festival vindt plaats in een groene omgeving. Daarom is het uiterst belangrijk dat deze zone afvalvrij gehouden wordt. Dit geldt voor de hele festivalsite: het terrein, de parkings en de camping. Gebruik de aanwezige vuilnisbakken om te beletten dat het terrein en zijn omgeving verandert in een afvalberg!</li>
+          <li>We dringen er ten zeerste op aan om voor omwonenden geen extra overlast te veroorzaken en geen beschadigingen toe te brengen aan naburige velden of eigendommen.</li>
+          <li>Op en rond het festivalterrein (dus ook op de parkings en op de openbare weg), is het ten strengste verboden flyers of ander promotioneel materiaal te verdelen. Er geldt hiervoor een absoluut politieverbod en dit om milieuredenen.</li>
+          <li>Hardnekkige overtreders worden aan de politie overgedragen en kunnen mogelijks gerechtelijk worden vervolgd.</li>
+        </ul>
       </section>
     </article>
   </main>
@@ -70,6 +130,5 @@
   <script src="js/plugins.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNvsP8sGCtsJ4AIJXdai4VaTPozp5WeG4"></script>
   <script src="js/general.js"></script>
-  <script>google.maps.event.addDomListener(window, 'load', setGmap);</script>
 </body>
 </html>
