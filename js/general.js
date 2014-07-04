@@ -1,10 +1,13 @@
 $(document).ready(function(){
-  // siteNavIndicator();
+
   if($('.pageNav').length > 0){
     pageNav();
   }
   if($('#gmap').length > 0){
     setGmap();
+  }
+  if($('.artistGrid').length > 0){
+    artistGridOverlapFix();
   }
 });
 
@@ -22,6 +25,7 @@ function pageNav(){
     $('.pageNavSection:nth-of-type(' + activeSectionNr + ')').addClass('active');
   });
 }
+
 function setGmap(){
   var msLatlng = new google.maps.LatLng(51.134729, 5.426029);
   var mapOptions = {
@@ -39,9 +43,8 @@ function setGmap(){
   });
 }
 
-function siteNavIndicator(){
-  var navInd = $.navIndicator({
-    //options
+function artistGridOverlapFix(){
+  $('.artist').hover(function(){
+    $(this).parents('li').toggleClass('active');
   });
-  // navInd.init();
 }

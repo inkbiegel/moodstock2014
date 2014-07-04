@@ -634,32 +634,3 @@ window.matchMedia || (window.matchMedia = function() {
   }
 
 } )( this, this.document );
-
-
-/*
-
-navIndicator
-
-*/
-
-(function($) {
-  $.navIndicator = function(options) {
-    var navInd = {
-      // options: $.extend({
-      //   'animated': true,
-      //   'duration': 500,
-      //   'direction': 'left'
-      // }, options),
-      init: function(){
-        console.log('test');
-      }
-    };
-
-    return {
-      // public methods
-        // open: jpm.openMenu,
-        // close: jpm.closeMenu,
-        // someComplexMethod: function( ) { }
-    };
-  };
-})(jQuery);
