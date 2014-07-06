@@ -106,8 +106,12 @@ main, .inner {
 .socialLinkRA { background-position: -40px -70px; }
 
 .msLogo {
-  position: relative;
-  display: inline-block;
+/*  position: relative;
+  display: inline-block;*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -2em 0 0 -3.75em;
   font-size: 3.5rem;
   text-transform: uppercase;
   line-height: 1;
@@ -237,8 +241,7 @@ main, .inner {
   animation: bgGrowIn 0.3s 3s ease-in-out forwards;
 }
 .msLogoAnimIntro {
-  position: relative;
-  -webkit-animation: slideOutAndShrink 0.2s 3.5s ease-in-out forwards;
+ -webkit-animation: slideOutAndShrink 0.2s 3.5s ease-in-out forwards;
   animation: slideOutAndShrink 0.2s 3.5s ease-in-out forwards;
 }
 #introNav > ul > li:first-child {
@@ -450,22 +453,26 @@ main, .inner {
 }
 @-webkit-keyframes slideOutAndShrink {
   0% {
-    -webkit-transform: translate(0,0) scale(1);
-    transform: translate(0,0) scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
   100% {
-    -webkit-transform: translate(2.5em,-0.5em) scale(0.8);
-    transform: translate(2.5em,-0.5em) scale(0.8);
+    top: 0;
+    margin-top: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
   }
 }
 @keyframes slideOutAndShrink {
   0% {
-    -webkit-transform: translate(0,0) scale(1);
-    transform: translate(0,0) scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
   100% {
-    -webkit-transform: translate(2.5em,-0.5em) scale(0.8);
-    transform: translate(2.5em,-0.5em) scale(0.8);
+    top: 0;
+    margin-top: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
   }
 }
 @-webkit-keyframes toIntroNavPosOne {
@@ -908,7 +915,8 @@ main, .inner {
   background: url(../img/intro-1280.jpg) no-repeat center center;
   -webkit-background-size: cover;
   background-size: cover;
-  overflow: hidden;
+  background-attachment: fixed;
+  min-height: 568px;
 }
 #home > main {
   position: relative;
@@ -918,11 +926,9 @@ main, .inner {
 #intro {
   position: absolute;
   left: 0; top: 0; right: 0; bottom: 0;
-  padding: 3.75em 0 0;
-  text-align: center;
 }
 #intro .msLogo {
-  font-size: 5em;
+  font-size: 2.5em;
   z-index: 4;
 }
 #intro .msLogo:before {
@@ -937,17 +943,18 @@ main, .inner {
 }
 #introNav {
   position: absolute;
-  left: 0; bottom: 20%;
+  left: 50%; bottom: 8%;
+  margin-left: -7.75em;
   z-index: 5;
 }
 #introNav > ul { list-style: none; }
-#introNav > ul > li {
-  padding: 2.25em 0;
-}
-#introNav > ul > li:nth-child(3) { clear: left; margin-left: 6.225em; }
+#introNav > ul > li:nth-child(3n+2), #introNav > ul > li:nth-child(3n+1) { clear: left; }
+#introNav > ul > li:nth-child(3n+2) { margin-left: 0; }
+#introNav > ul > li:nth-child(3n+1) { margin-left: 3.9875em; }
+
 #introNav .hexTxt { text-decoration: none; }
 #introNav .hexTxtContent{
-  font: bold 1.55em/1 'Quadon', serif;
+  font: bold 1.25em/1 'Quadon', serif;
 }
 
 /* line-up */
@@ -1181,6 +1188,36 @@ main, .inner {
 .lt-ie8 .hexGrid, .lt-ie8 .hexSimpleGrid, .lt-ie8 .inner, .lt-ie8 .inner, .lt-ie8 #siteNav > ul, .lt-ie8 #siteNav > ul { zoom: 1; }
 
 /********** MEDIA QUERIES **********/
+@media (max-width: 30em) {
+  #introNav > ul > li {
+    clear: none;
+    height: 4.275em;
+    padding: 1.8em 0;
+    margin: 0 0 -1.45em 0.5em;
+  }
+  #introNav .hexTxt {
+    width: 7.52em;
+    height: 4.24em;
+  }
+  #introNav .hexTxt:before {
+    top: -1.75em;
+    border-left-width: 3.76em;
+    border-right-width: 3.76em;
+    border-bottom-width: 1.75em;
+  }
+  #introNav .hexTxt:after {
+    bottom: -1.75em;
+    border-left-width: 3.76em;
+    border-right-width: 3.76em;
+    border-top-width: 1.75em;
+  }
+  #introNav .hexSimpleInner {
+    font-size: 0.544em;
+    height: 7em;
+  }
+  #introNav .hexSimpleInner:before { top: -2.975em; }
+  #introNav .hexSimpleInner:after { bottom: -2.975em; }
+}
 @media (max-width: 61.1875em) { /* 979px */
   main, #siteNav {
     -webkit-box-sizing: border-box;
@@ -1191,18 +1228,23 @@ main, .inner {
 }
 @media (min-width: 24em) { /* 384px */
   .hexGrid > li:nth-child(even) { margin: 0 0 -3.15em 7.6125em; }
-  .hexSimpleGrid.small > li, .hexSimpleGrid.small > li:nth-child(odd) { margin-left: 0.5em; }
+  .hexSimpleGrid.small > li, .hexSimpleGrid.small > li:nth-child(odd) { margin-left: 0.5em; clear: none; }
   .hexSimpleGrid.small > li:nth-child(3n+1) { margin-left: 0; clear: left; }
-  .hexSimpleGrid.small > li:nth-child(3n) { margin-left: 4.9375em; }
+  .hexSimpleGrid.small > li:nth-child(3n) { margin-left: 4.9375em; clear: left; }
 
   .pageNav { font-size: 1em; }
   .pageNav > li:first-child { margin-right: 1em; }
 }
-@media (min-width: 26em) {
-  .hexSimpleGrid.small > li:nth-child(3n), .hexSimpleGrid.small > li:nth-child(3n+1) { margin-left: 0.5em; }
-  .hexSimpleGrid.small > li:nth-child(3n+1) { clear: none; }
+@media (min-width: 26em) { /* 416px */
+  .hexSimpleGrid.small > li:nth-child(3n), .hexSimpleGrid.small > li:nth-child(3n+1) { margin-left: 0.5em; clear: none; }
   .hexSimpleGrid.small > li:nth-child(4n+1) { margin-left: 0; clear: left; }
-  .hexSimpleGrid.small > li:nth-child(4n+3) { margin-left: 4.9375em; }
+  .hexSimpleGrid.small > li:nth-child(4n+3) { margin-left: 4.9375em; clear: left; }
+  #intro .msLogo { font-size: 3em; }
+  #introNav { margin-left: -9.75em; }
+  #introNav > ul > li:nth-child(4), #introNav > ul > li:nth-child(3n+2), #introNav > ul > li:nth-child(3n+1) { clear: none; }
+  #introNav > ul > li:nth-child(3n+2), #introNav > ul > li:nth-child(3n+1) { margin-left: 0.5em; }
+  #introNav > ul > li:first-child { margin-left: 0; }
+  #introNav > ul > li:nth-child(3) { clear: left; margin-left: 4em; }
 }
 @media (min-width: 31.5625em) { /* 505px */
   table tbody th { padding-left: 1em; }
@@ -1212,24 +1254,59 @@ main, .inner {
   .hexGrid > li:nth-child(3n+0) { margin-left: 7.6125em; }
   .hexSimpleGrid.large > li { margin: 0 0 -3em 1em; }
   .hexSimpleGrid.large > li:nth-child(odd) { margin-left: 1em; }
-  .hexSimpleGrid.large > li:nth-child(3n) { margin-left: 7.5625em; }
+  .hexSimpleGrid.large > li:nth-child(3n) { margin-left: 7.5625em; clear: left; }
   .hexSimpleGrid.large > li:nth-child(3n+1) { margin-left: 0; clear: left; }
 
-  .hexSimpleGrid.small > li:nth-child(4n+3), .hexSimpleGrid.small > li:nth-child(4n+1) { margin-left: 0.5em; }
-  .hexSimpleGrid.small > li:nth-child(4n+1) { clear: none; }
-  .hexSimpleGrid.small > li:nth-child(5n+4) { margin-left: 4.9375em; }
+  .hexSimpleGrid.small > li:nth-child(4n+3), .hexSimpleGrid.small > li:nth-child(4n+1) { margin-left: 0.5em; clear: none; }
+  .hexSimpleGrid.small > li:nth-child(5n+4) { margin-left: 4.9375em; clear: left; }
   .hexSimpleGrid.small > li:nth-child(5n+1) { margin-left: 0; clear: left; }
+
+  #intro .msLogo { font-size: 4em; }
+  #introNav { left: 10%; }
+  #introNav > ul > li { padding: 2.25em 0; }
+  #introNav .hexTxtContent { font-size: 1.55em; }
+  @-webkit-keyframes slideOutAndShrink {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    100% {
+      top: 0.25em;
+      left: 60%;
+      margin-top: 0;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+  }
+  @keyframes slideOutAndShrink {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    100% {
+      top: 0.25em;
+      left: 60%;
+      margin-top: 0;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+  }
 }
 @media (min-width: 39em) { /* 624px */
   .hexGrid > li:nth-child(odd), .hexGrid > li:nth-child(even) { margin-left: 1.1em; }
   .hexGrid > li:nth-child(3n+1) { clear: none; }
   .hexGrid > li:nth-child(4n+1) { margin-left: 0; clear: left; }
-  .hexGrid > li:nth-child(4n+3) { margin-left: 7.6125em; }
+  .hexGrid > li:nth-child(4n+3) { margin-left: 7.6125em;  }
 
-  .hexSimpleGrid.small > li:nth-child(5n+4), .hexSimpleGrid.small > li:nth-child(5n+1) { margin-left: 0.5em; }
-  .hexSimpleGrid.small > li:nth-child(5n+1) { clear: none; }
-  .hexSimpleGrid.small > li:nth-child(6n+4) { margin-left: 4.9375em; }
+  .hexSimpleGrid.small > li:nth-child(5n+4), .hexSimpleGrid.small > li:nth-child(5n+1) { margin-left: 0.5em; clear: none; }
+  .hexSimpleGrid.small > li:nth-child(6n+4) { margin-left: 4.9375em; clear: left; }
   .hexSimpleGrid.small > li:nth-child(6n+1) { margin-left: 0; clear: left; }
+}
+@media (min-width: 42em) { /* 672px */
+  .hexSimpleGrid.small > li:nth-child(6n+4), .hexSimpleGrid.small > li:nth-child(6n+1) { margin-left: 0.5em; clear: none; }
+  .hexSimpleGrid.small > li:nth-child(7n+5) { margin-left: 4.9375em; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(7n+1) { margin-left: 0; clear: left; }
+  #intro .msLogo { font-size: 5em; }
 }
 @media (min-width: 48.75em) { /* 780px */
   #siteTopBar > strong, #siteTopBar > .msPlace, #siteTopBar > .socialLinks { margin-left: 1.5em; }
@@ -1298,29 +1375,59 @@ main, .inner {
   .hexGrid > li:nth-child(5n+1) { margin-left: 0; clear: left; }
   .hexGrid > li:nth-child(5n+4) { margin-left: 7.6125em; }
 
-  .hexSimpleGrid.large > li { margin: 0 0 -3em 1.3525em; }
-  .hexSimpleGrid.large > li:nth-child(4n+1) { margin-left: 0; }
-  .hexSimpleGrid.large > li:nth-child(3n) { margin-left: 1em; }
-  .hexSimpleGrid.large > li:nth-child(4n+5) { margin-left: 6.92625em; }
-  .hexSimpleGrid.large > li:nth-child(4){ clear: left; margin-left: 7.75em; }
-  .hexSimpleGrid.large > li:nth-child(4n+5) {
-    clear: none;
-    margin-left: 1.3525em;
-  }
-  .hexSimpleGrid.small > li {
-    height: 5.34375em;
-    padding: 2.34374em 0;
-    margin: 0 0 -1.5em 1em;
-  }
-  .hexSimpleGrid.small > li:nth-child(10n+6){ margin-left: 6.225em; }
+  .hexSimpleGrid.large > li:nth-child(3n), .hexSimpleGrid.large > li:nth-child(3n+1) { clear: none; margin-left: 1em; }
+  .hexSimpleGrid.large > li:nth-child(5n+1) { margin-left: 0; clear: left; }
+  .hexSimpleGrid.large > li:nth-child(5n+4) { margin-left: 7.5625em; clear: left; }
+
+  .hexSimpleGrid.small > li:nth-child(7n+5), .hexSimpleGrid.small > li:nth-child(7n+1) { margin-left: 0.5em; clear: none; }
+  .hexSimpleGrid.small > li:nth-child(8n+5) { margin-left: 4.9375em; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(8n+1) { margin-left: 0; clear: left; }
 
   .content h1 { font-size: 2.5em; }
+
+  #introNav {
+    left: 1em; bottom: 10%;
+  }
+  @-webkit-keyframes slideOutAndShrink {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    100% {
+      margin: 0;
+      left: auto;
+      right: -0.5em;
+      top: 10%;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+  }
+  @keyframes slideOutAndShrink {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    100% {
+      margin: 0;
+      left: auto;
+      right: -0.5em;
+      top: 10%;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+  }
 }
 @media (min-width: 56em) { /* 896px */
   .hexGrid > li:nth-child(5n+4), .hexGrid > li:nth-child(5n+1) { margin-left: 1.1em; }
   .hexGrid > li:nth-child(5n+1) { clear: none; }
   .hexGrid > li:nth-child(6n+1) { margin-left: 0; clear: left; }
   .hexGrid > li:nth-child(6n+4) { margin-left: 7.6125em; }
+  .hexSimpleGrid.large > li:nth-child(5n+1), .hexSimpleGrid.large > li:nth-child(5n+4) { clear: none; margin-left: 1em; }
+  .hexSimpleGrid.large > li:nth-child(6n+1) { margin-left: 0; clear: left; }
+  .hexSimpleGrid.large > li:nth-child(6n+4) { margin-left: 7.5625em; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(8n+5), .hexSimpleGrid.small > li:nth-child(8n+1) { margin-left: 0.5em; clear: none; }
+  .hexSimpleGrid.small > li:nth-child(9n+6) { margin-left: 4.9375em; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(10n) { margin-left: 0; clear: left; }
 }
 @media (min-width: 61.25em) { /* 980px */
   #siteHeader .msLogo { margin-right: 12%; margin-left: 0; }
@@ -1332,7 +1439,15 @@ main, .inner {
   .hexGrid > li:nth-child(7n+1) { margin-left: 0; clear: left; }
   .hexGrid > li:nth-child(7n+5) { margin-left: 7.6125em; }
 
-  #intro { padding-top: 20%; }
+  .hexSimpleGrid.small > li:nth-child(9n+6), .hexSimpleGrid.small > li:nth-child(10n) { clear: none; }
+  .hexSimpleGrid.small > li:nth-child(10n+1) { margin-left: 0; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(10n+6) { margin-left: 4.9375em; clear: left; }
+  .hexSimpleGrid.small > li:nth-child(10n) { margin-left: 0.5em; }
+
+  #introNav { left: 0; }
+}
+@media (min-height: 50em) {
+  #introNav { bottom: 20%; }
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
