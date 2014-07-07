@@ -643,7 +643,7 @@ main, .inner {
   height: 8px;
   width: 7px;
   position: absolute;
-  left: -9px; top: 10px;
+  left: -9px; top: 12px;
   background: url(../img/bg/sprite.png) no-repeat 0 -60px;
 }
 #siteNav > ul > li:first-child, #siteNav > ul > .first { margin-left: 0; }
@@ -925,7 +925,7 @@ main, .inner {
 /********** PAGE SPECIFIC *********
 /* homepage */
 #home {
-  background: url(../img/intro-1280.jpg) no-repeat center center;
+  background: #000 url(../img/intro-1280.jpg) no-repeat center center;
   -webkit-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
@@ -935,8 +935,6 @@ main, .inner {
   position: relative;
   height: 100%;
   width: 100%;
-  min-height: 568px;
-  overflow: auto;
 }
 #intro {
   position: absolute;
@@ -1187,7 +1185,7 @@ main, .inner {
   #hoendrik { width: 100px; height: 71px; background-position: -255px -252px; }
 
 /* tickets */
-#ticketsOrder.hexSimple { margin: 5em 0 0; }
+#ticketsOrder { width: 100%; max-width: 486px; }
 #ticketsOrder > .hexTxtContent { font-size: 1.55em; font-weight: bold; }
 
 
@@ -1284,13 +1282,13 @@ main, .inner {
   #introNav > ul > li { padding: 2.25em 0; }
   #introNav > ul > li:nth-child(3) { margin-left: 4.9375em; }
   #introNav .hexTxtContent { font-size: 1.55em; }
-  @-webkit-keyframes slideOutAndShrink {
+/*  @-webkit-keyframes slideOutAndShrink {
     0% {
       -webkit-transform: scale(1);
       transform: scale(1);
     }
     100% {
-      top: 0.25em;
+      top: 10%;
       left: 60%;
       margin-top: 0;
       -webkit-transform: scale(0.8);
@@ -1303,13 +1301,13 @@ main, .inner {
       transform: scale(1);
     }
     100% {
-      top: 0.25em;
+      top: 10%;
       left: 60%;
       margin-top: 0;
       -webkit-transform: scale(0.8);
       transform: scale(0.8);
     }
-  }
+  }*/
 }
 @media (min-width: 39em) { /* 624px */
   .hexGrid > li:nth-child(odd), .hexGrid > li:nth-child(even) { margin-left: 1.1em; }
@@ -1405,38 +1403,6 @@ main, .inner {
   .hexSimpleGrid.small > li:nth-child(8n+1) { margin-left: 0; clear: left; }
 
   .content h1 { font-size: 2.5em; }
-
-  #introNav {
-    left: 1em; bottom: 10%;
-  }
-  @-webkit-keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      margin: 0;
-      left: auto;
-      right: -0.5em;
-      top: 10%;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
-  }
-  @keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      margin: 0;
-      left: auto;
-      right: -0.5em;
-      top: 10%;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
-  }
 }
 @media (min-width: 56em) { /* 896px */
   .hexGrid > li:nth-child(5n+4), .hexGrid > li:nth-child(5n+1) { margin-left: 1.1em; }
@@ -1464,12 +1430,53 @@ main, .inner {
   .hexSimpleGrid.small > li:nth-child(10n+1) { margin-left: 0; clear: left; }
   .hexSimpleGrid.small > li:nth-child(10n+6) { margin-left: 4.9375em; clear: left; }
   .hexSimpleGrid.small > li:nth-child(10n) { margin-left: 0.5em; }
-
-  #introNav { left: 0; }
 }
-@media (min-height: 50em) {
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .socialLinks > li > a, #siteNav > ul > li:before, .defList > li:before, .artistLinks > li > a {
+    background-image: url(../img/bg/sprite@2x.png);
+    background-size: 60px 90px;
+  }
+}
+
+/* introAnim */
+@media (min-height: 50em) { /* 800px */
   #introNav { bottom: 20%; }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
+@media (min-width: 48.75em) { /* 780px */
+  #introNav {
+    left: 1em; bottom: 10%;
+  }
+  /*  @-webkit-keyframes slideOutAndShrink {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+      100% {
+        margin: 0;
+        left: auto;
+        right: -0.5em;
+        top: 10%;
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+      }
+    }
+    @keyframes slideOutAndShrink {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+      100% {
+        margin: 0;
+        left: auto;
+        right: -0.5em;
+        top: 10%;
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+      }
+    }*/
+}
+@media (min-width: 61.25em) { /* 980px */
+  #introNav { left: 0; }
 }
