@@ -1,3 +1,11 @@
+<?php
+  require_once 'php/Mobile_Detect.php';
+  $detect = new Mobile_Detect;
+  if($detect->isMobile()){
+    header("Location: http://www.moodstock.eu/2014/line-up.html");
+    die();
+  }
+?>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="lt-ie9 ie8"><![endif]-->
 <!--[if IE 9]><html class="lt-ie10 ie9"><![endif]-->

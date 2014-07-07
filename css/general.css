@@ -106,12 +106,8 @@ main, .inner {
 .socialLinkRA { background-position: -40px -70px; }
 
 .msLogo {
-/*  position: relative;
-  display: inline-block;*/
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin: -2em 0 0 -3.75em;
+  position: relative;
+  display: inline-block;
   font-size: 3.5rem;
   text-transform: uppercase;
   line-height: 1;
@@ -204,7 +200,12 @@ main, .inner {
   font-size: 0.275em;
   color: #fff;
 }
-
+.msLogoAnimIntro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -2em 0 0 -3.75em;
+}
 .msLogoAnimIntro > span, .msLogoAnimIntro > strong, .msLogoAnimIntro.msLogo:before, .msLogoAnimIntro.msLogo:after, #introNav > ul > li { opacity: 0; }
 .msLogoAnimIntro > .msLogoNr {
   -webkit-animation: slideFadeInRight 0.5s 1s ease-out forwards;
@@ -607,6 +608,7 @@ main, .inner {
 #siteHeader > .inner {
   padding: 1em 0;
   overflow: hidden;
+  text-align: center;
 }
 #siteHeader .msLogo {
   height: 3.1em;
@@ -627,19 +629,30 @@ main, .inner {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -2.5em;
+  bottom: -2.75em;
 }
-#siteNav > ul { list-style: none; }
+#siteNav > ul { list-style: none; display: inline-block; }
 #siteNav > ul > li {
+  position: relative;
   float: left;
-  margin: 0 0 0 0.5em;
+  margin: 0 0 0 0.795em;
 }
-#siteNav > ul > li:first-child { margin: 0; }
+#siteNav > ul > li:before {
+  content: '';
+  display: block;
+  height: 8px;
+  width: 7px;
+  position: absolute;
+  left: -9px; top: 10px;
+  background: url(../img/bg/sprite.png) no-repeat 0 -60px;
+}
+#siteNav > ul > li:first-child, #siteNav > ul > .first { margin-left: 0; }
+#siteNav > ul > li:first-child:before, #siteNav > ul > .first:before, #siteNav > ul > .last:before { display: none; }
 #siteNav a {
   display: block;
   padding: 0.05em 0.4em;
   position: relative;
-  font-size: 1.25em;
+  font-size: 1.175em;
   font-weight: bold;
   text-decoration: none;
   color: #ed008c;
@@ -916,12 +929,14 @@ main, .inner {
   -webkit-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 568px;
+  overflow: hidden;
 }
 #home > main {
   position: relative;
   height: 100%;
   width: 100%;
+  min-height: 568px;
+  overflow: auto;
 }
 #intro {
   position: absolute;
@@ -953,9 +968,7 @@ main, .inner {
 #introNav > ul > li:nth-child(3n+1) { margin-left: 3.9875em; }
 
 #introNav .hexTxt { text-decoration: none; }
-#introNav .hexTxtContent{
-  font: bold 1.25em/1 'Quadon', serif;
-}
+#introNav .hexTxtContent { font: bold 1.25em/1 'Quadon', serif; }
 
 /* line-up */
 .artistGrid > li { position: relative; }
@@ -1173,6 +1186,9 @@ main, .inner {
   #q8 { width: 95px; height: 71px; background-position: -255px -177px; }
   #hoendrik { width: 100px; height: 71px; background-position: -255px -252px; }
 
+/* tickets */
+#ticketsOrder.hexSimple { margin: 5em 0 0; }
+#ticketsOrder > .hexTxtContent { font-size: 1.55em; font-weight: bold; }
 
 
 /********** HELPER CLASSES **********/
@@ -1188,7 +1204,7 @@ main, .inner {
 .lt-ie8 .hexGrid, .lt-ie8 .hexSimpleGrid, .lt-ie8 .inner, .lt-ie8 .inner, .lt-ie8 #siteNav > ul, .lt-ie8 #siteNav > ul { zoom: 1; }
 
 /********** MEDIA QUERIES **********/
-@media (max-width: 30em) {
+@media (max-width: 31.5em) { /* 504px */
   #introNav > ul > li {
     clear: none;
     height: 4.275em;
@@ -1234,6 +1250,8 @@ main, .inner {
 
   .pageNav { font-size: 1em; }
   .pageNav > li:first-child { margin-right: 1em; }
+
+  #siteNav a { font-size: 1.25em; }
 }
 @media (min-width: 26em) { /* 416px */
   .hexSimpleGrid.small > li:nth-child(3n), .hexSimpleGrid.small > li:nth-child(3n+1) { margin-left: 0.5em; clear: none; }
@@ -1262,8 +1280,9 @@ main, .inner {
   .hexSimpleGrid.small > li:nth-child(5n+1) { margin-left: 0; clear: left; }
 
   #intro .msLogo { font-size: 4em; }
-  #introNav { left: 10%; }
+  #introNav { left: 10%; margin-left: 0; }
   #introNav > ul > li { padding: 2.25em 0; }
+  #introNav > ul > li:nth-child(3) { margin-left: 4.9375em; }
   #introNav .hexTxtContent { font-size: 1.55em; }
   @-webkit-keyframes slideOutAndShrink {
     0% {
@@ -1313,7 +1332,7 @@ main, .inner {
   #siteTopBar > strong { float: right; font-size: 1em; }
 
   #siteHeader { overflow: hidden; padding: 1em 0; }
-  #siteHeader > .inner { padding: 0; overflow: visible; }
+  #siteHeader > .inner { padding: 0; overflow: visible; text-align: left; }
   #siteHeader .msLogo {
     float: left;
     font-size: 3em;
@@ -1325,7 +1344,9 @@ main, .inner {
     float: left;
     margin: 6.55em 0 0;
   }
-  #siteNav > ul > li { margin-left: 1.25em; }
+  #siteNav > ul { display: block; }
+  #siteNav > ul > li, #siteNav > ul > .first, #siteNav > ul > li:first-child { margin-left: 1.25em; margin-right: 0; }
+  #siteNav > ul > li:before { display: none; }
   #siteNav a:before, #siteNav .active {
     background: #fff;
     -webkit-box-shadow: 0 -0.5em 2.5em rgba(237,0,140,0.45);

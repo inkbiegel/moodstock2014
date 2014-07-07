@@ -9,6 +9,9 @@ $(document).ready(function(){
   if($('.artistGrid').length > 0){
     artistGridOverlapFix();
   }
+  if($('#ticketsOrder').length > 0){
+    setTicketsOrderState();
+  }
 });
 
 function pageNav(){
@@ -47,4 +50,12 @@ function artistGridOverlapFix(){
   $('.artist').hover(function(){
     $(this).parents('li').toggleClass('active');
   });
+}
+
+function setTicketsOrderState(){
+  if(window.innerWidth >= 486) {
+    var url = $('#ticketsOrder').attr('href');
+    $('#ticketsOrder').remove();
+    $('#tickets').append('<iframe id="ticketsOrder" src="' + url + '" width="500" height="550" frameborder="0" allowtransparency="true"></iframe>');
+  }
 }
