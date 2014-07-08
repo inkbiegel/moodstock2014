@@ -127,6 +127,7 @@ main, .inner {
   background-size: contain;
   z-index: 1;
 }
+  .no-svg .msLogo:after { background-image: url(../img/bg/pigeon.png); }
 .msLogo.hasBg:before {
   content: '';
   display: block;
@@ -193,7 +194,7 @@ main, .inner {
 
 #siteHeader {
   background: rgb(103,44,135);
-  background: rgb(103,44,135), url(../img/bg/siteheader-rpt.png) repeat-x 0 0;
+  background: rgb(103,44,135) url(../img/bg/siteheader-rpt.png) repeat-x 0 0;
   background: url(../img/bg/siteheader-rpt.png) repeat-x 0 0, -moz-linear-gradient(top,  rgba(103,44,135,1) 0%, rgba(103,44,135,1) 50%, rgba(237,0,140,1) 100%);
   background: url(../img/bg/siteheader-rpt.png) repeat-x 0 0, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(103,44,135,1)), color-stop(50%,rgba(103,44,135,1)), color-stop(100%,rgba(237,0,140,1)));
   background: url(../img/bg/siteheader-rpt.png) repeat-x 0 0, -webkit-linear-gradient(top,  rgba(103,44,135,1) 0%,rgba(103,44,135,1) 50%,rgba(237,0,140,1) 100%);
@@ -207,6 +208,7 @@ main, .inner {
   -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
   box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
 }
+  .no-cssgradients #siteHeader, .no-multiplebgs #siteHeader { background: rgb(103,44,135) url(../img/bg/siteheader-rpt-fallback.png) repeat-x 0 0; }
 #siteHeader > .inner {
   padding: 1em 0;
   overflow: hidden;
@@ -314,6 +316,7 @@ main, .inner {
   overflow: hidden;
 }
 .hexGrid > li { margin: 0 0 -3.15em 1.1em; }
+  .no-csstransforms .hexGrid > li { margin-bottom: 1.1em; }
 .hexGrid > li:nth-child(odd) { margin-left: 0; }
 .hexGrid > li:nth-child(even) { margin: 2em 0 -1em 4.5em; }
 
@@ -397,6 +400,7 @@ main, .inner {
   background: #672c87;
   z-index: 1;
 }
+  .no-csstransforms .hexSimpleInner { margin: -3.55em 0 0 -6.25em; }
 .hexSimpleInner:before { top: -3.05em; }
 .hexSimpleInner:after { bottom: -3.05em;  }
 .hexSimple:hover { background: #672c87; }
@@ -462,6 +466,7 @@ main, .inner {
   border-top-width: 2.25em;
 }
 .hexSimple.small > .hexSimpleInner { font-size: 0.68em; height: 6.8em; }
+  .lt-ie9 .hexSimple.small > .hexSimpleInner { height: 7em; }
 .hexSimple.small > .hexSimpleInner:before { top: -3.025em; }
 .hexSimple.small > .hexSimpleInner:after { bottom: -3.025em; }
 
@@ -556,17 +561,6 @@ main, .inner {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-.artist > figcaption:before, .artist > figcaption:after {
-  content: '';
-  display: block;
-  width: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
 .artist > figcaption > strong {
   position: relative;
   top: 50%;
@@ -587,6 +581,7 @@ main, .inner {
   transition: all 0.2s ease-out;
   -webkit-backface-visibility: hidden;
 }
+  .no-csstransforms .artist > figcaption > strong { position: absolute; left: 15px; top: auto; right: 15px; bottom: 15px; }
 .artist > figcaption > strong > em { text-transform: none; font-size: 0.75em; }
 .artistLinks {
   position: absolute;
@@ -617,6 +612,8 @@ main, .inner {
   -webkit-transition-delay: 0.15s;
   transition-delay: 0.15s;
 }
+  .no-csstransforms .artistLinks > .left, .no-csstransforms .artistLinks > .right { top: 5px; }
+  .no-csstransforms .artistLinks > .lvl2 { top: 40px; }
 .artistLinks > li > a {
   display: block;
   height: 30px;
@@ -635,25 +632,27 @@ main, .inner {
 .artistLinkRA { background-position: 0 -30px; }
 .artistLinkWww { background-position: -30px -30px; }
 .artist:hover .artistImgPurple { opacity: 0; }
-.artist:hover > figcaption > strong {
+.artist:hover > figcaption > strong, .no-csstransitions .artist > figcaption > strong {
   background: #ed008c;
   color: #fff;
   -webkit-transform: translateY(120%) scale(0.8);
   -ms-transform: translateY(120%) scale(0.8);
   transform: translateY(120%) scale(0.8);
 }
-.artist:hover > .longName > strong {
+.artist:hover > .longName > strong, .no-csstransitions .artist > .longName > strong  {
   -webkit-transform: translateY(50%) scale(0.8);
   -ms-transform: translateY(50%) scale(0.8);
   transform: translateY(50%) scale(0.8);
 }
-.artist:hover .artistLinks > li {
+.artist:hover .artistLinks > li, .no-csstransitions .artist .artistLinks > li {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
 }
+  .no-csstransitions .artist .artistImgPurple { display: none; }
+
 
 /* info */
 #infoPage { position: relative; }
@@ -679,6 +678,8 @@ main, .inner {
   -ms-transform: translateX(0) scale(1);
   transform: translateX(0) scale(1);
 }
+  .no-opacity .pageNavSection { display: none; }
+  .no-opacity .pageNavSection.active { display: block; }
 #gmapFig { margin: 0 0 1em; }
 #gmap {
   position: relative;
@@ -729,6 +730,13 @@ main, .inner {
   #jnsBanden { height: 41px; width: 150px; background-position: 0 -446px; }
   #senorSnacks { height: 101px; width: 125px; background-position: 0 -342px; }
   #vanReusel { width: 114px; background-position: -130px 0; }
+    .no-csstransforms .large > .partnerLogo { margin-top: -57px; }
+    .no-csstransforms #cristal { margin-left: -58px; }
+    .no-csstransforms #cocaCola { margin-left: -57px; }
+    .no-csstransforms #vanduffel { margin-left: -57px; }
+    .no-csstransforms #jnsBanden { margin-top: -20px; margin-left: -75px; }
+    .no-csstransforms #senorSnacks { margin-top: -50px; margin-left: -63px; }
+    .no-csstransforms #vanReusel { margin-left: -57px; }
 .small > .partnerLogo { height: 76px; }
   #airLonden { width: 68px; background-position: -130px -116px; }
   #mobilee { width: 76px; background-position: -130px -194px; }
@@ -740,6 +748,17 @@ main, .inner {
   #fun4You { width: 110px; height: 36px; background-position: -255px -137px; }
   #q8 { width: 95px; height: 71px; background-position: -255px -177px; }
   #hoendrik { width: 100px; height: 71px; background-position: -255px -252px; }
+    .no-csstransforms .small > .partnerLogo { margin-top: -38px; }
+    .no-csstransforms #airLonden { margin-left: -34px; }
+    .no-csstransforms #mobilee { margin-left: -38px; }
+    .no-csstransforms #provLimburg { margin-top: -21px; margin-left: -55px; }
+    .no-csstransforms #stadPeer { margin-top: -22px; margin-left: -55px; }
+    .no-csstransforms #kbc { margin-top: -33px; margin-left: -43px; }
+    .no-csstransforms #winters { margin-top: -26px; margin-left: -52px; }
+    .no-csstransforms #deJong { margin-left: -40px; }
+    .no-csstransforms #fun4You { margin-top: -18px; margin-left: -55px; }
+    .no-csstransforms #q8 { margin-top: -35px; margin-left: -57px; }
+    .no-csstransforms #hoendrik { margin-top: -35px; margin-left: -50px; }
 
 /* tickets */
 #ticketsOrder { width: 100%; max-width: 486px; }
@@ -874,6 +893,9 @@ main, .inner {
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
+    .no-csstransforms #siteNav a:hover, #siteNav .active { position: relative; top: -0.2em; }
+    .no-csstransitions #siteNav a:before, .no-csstransforms #siteNav a:before { display: none; }
+    .no-csstransitions #siteNav a:hover:before, .no-csstransforms #siteNav a:hover:before { display: block; }
 
   .msLogo:after { height: 4em; }
 

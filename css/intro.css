@@ -525,10 +525,6 @@
 @media (min-width: 31.5625em) { /* 505px */
   #intro .msLogo { font-size: 3.5em; }
   #introNav { left: 10%; }
-  /*#introNav > ul > li { padding: 2.25em 0; }
-  #introNav > ul > li:nth-child(3) { margin-left: 4.9375em; }
-  #introNav .hexTxtContent { font-size: 1.55em; }
-*/
 }
 @media (min-width: 42em) { /* 672px */
   #intro .msLogo { font-size: 4em; }

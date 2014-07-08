@@ -53,7 +53,7 @@ function artistGridOverlapFix(){
 }
 
 function setTicketsOrderUrl(){
-  if(window.innerWidth >= 486) {
+  if($(window).innerWidth() >= 486) {
     var url = $('#ticketsOrder').attr('src'),
         newUrl = url.replace('https://m','https://shop');
 
