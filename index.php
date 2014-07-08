@@ -17,6 +17,7 @@
   <title>7th Moodstock electronic music festival</title>
   <meta name="description" content="7th Moodstock electronic music festival. Zaterdag 9 augustus. Wijchmaal - Peer.">
   <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/intro.css">
   <script src="js/modernizr.js"></script>
 </head>
 <body id="home">
