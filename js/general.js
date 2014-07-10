@@ -12,6 +12,7 @@ $(document).ready(function(){
   if($('#ticketsOrder').length > 0){
     setTicketsOrderUrl();
   }
+
 });
 
 function pageNav(){
@@ -30,9 +31,9 @@ function pageNav(){
 }
 
 function setGmap(){
-  var msLatlng = new google.maps.LatLng(51.134729, 5.426029);
+  var msLatlng = new google.maps.LatLng(51.134804, 5.4261822);
   var mapOptions = {
-    center: new google.maps.LatLng(51.135167, 5.420879),
+    center: new google.maps.LatLng(51.134804, 5.4261822),
     zoom: 15
   };
 

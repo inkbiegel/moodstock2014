@@ -1,0 +1,20 @@
+{
+  "name": "moodstock",
+  "version": "0.0.0",
+  "description": "Website for the electronic music festival Moodstock in Wijchmaal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inkbiegel/moodstock2014.git"
+  },
+  "author": "Jelle Vuylsteke",
+  "bugs": {
+    "url": "https://github.com/inkbiegel/moodstock2014/issues"
+  },
+  "homepage": "http://www.moodstock.eu",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
