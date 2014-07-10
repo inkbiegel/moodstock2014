@@ -2,7 +2,7 @@
   // redirect mobile + no css animation users to line up page
   require_once 'php/Mobile_Detect.php';
   $detect = new Mobile_Detect;
-  if($detect->isMobile() || preg_match("/MSIE [6-9]\.0|Opera Mini/",$_SERVER['HTTP_USER_AGENT'])){
+  if($detect->isMobile() && !$detect->isTablet() || preg_match("/MSIE [6-9]\.0|Opera Mini/",$_SERVER['HTTP_USER_AGENT'])){
     header("Location: http://www.moodstock.eu/2014/line-up.html");
     die();
   }

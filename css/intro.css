@@ -67,14 +67,14 @@
   height: 6.75em;
 }
 #introNav .hexSimpleInner:before { top: -2.975em; }
-#introNav .hexSimpleInner:after { bottom: -2.975em; }
+#introNav .hexSimpleInner:after { bottom: -2.96em; }
 #introNav .hexTxtContent { font: bold 1.25em/1 'Quadon', serif; }
 
 .msLogoAnimIntro {
   position: absolute;
-  left: 50%;
+  right: 50%;
   top: 50%;
-  margin: -2em 0 0 -3.75em;
+  margin: -2em -3.75em 0 0;
 }
 .msLogoAnimIntro > span, .msLogoAnimIntro > strong, .msLogoAnimIntro.msLogo:before, .msLogoAnimIntro.msLogo:after, #introNav > ul > li { opacity: 0; }
 .msLogoAnimIntro > .msLogoNr {
@@ -328,8 +328,8 @@
     transform: scale(1);
   }
   100% {
+    top: 0; right: 0;
     margin: 0;
-    left: auto; top: 0; right: 0;
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
   }
@@ -340,8 +340,80 @@
     transform: scale(1);
   }
   100% {
+    top: 0; right: 0;
     margin: 0;
-    left: auto; top: 0; right: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes slideOutAndShrinkSmall {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 10%; right: 10%;
+    margin: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@keyframes slideOutAndShrinkSmall {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 10%; right: 10%;
+    margin: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes slideOutAndShrinkMedium {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 15%; right: 10%;
+    margin: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@keyframes slideOutAndShrinkMedium {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 15%; right: 10%;
+    margin: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes slideOutAndShrinkLarge {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 15%; right: 0;
+    margin: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+}
+@keyframes slideOutAndShrinkLarge {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    top: 15%; right: 0;
+    margin: 0;
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
   }
@@ -461,56 +533,16 @@
 
 @media (min-height: 37.5em) { /* 600px */
   #introNav { bottom: 10%; }
-  @-webkit-keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 10%; right: 10%;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
-  }
-  @keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 10%; right: 10%;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
+  .msLogoAnimIntro {
+    -webkit-animation-name: slideOutAndShrinkSmall;
+            animation-name: slideOutAndShrinkSmall;
   }
 }
 @media (min-height: 53em) and (min-width: 37.5em) { /* 848px 600px */
   #introNav { bottom: 20%; }
-  @-webkit-keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 15%; right: 10%;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
-  }
-  @keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 15%; right: 10%;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
+  .msLogoAnimIntro {
+    -webkit-animation-name: slideOutAndShrinkMedium;
+            animation-name: slideOutAndShrinkMedium;
   }
 }
 
@@ -532,28 +564,8 @@
 @media (min-width: 75em) { /* 1200px */
   #intro .msLogo { font-size: 4.75em; }
   #introNav { left: 0; }
-  @-webkit-keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 15%; right: 0;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
-  }
-  @keyframes slideOutAndShrink {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    100% {
-      left: auto; top: 15%; right: 0;
-      margin-top: 0;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
-    }
+  .msLogoAnimIntro {
+    -webkit-animation-name: slideOutAndShrinkLarge;
+            animation-name: slideOutAndShrinkLarge;
   }
 }
