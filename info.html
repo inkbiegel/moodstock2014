@@ -5,13 +5,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
   <title>Info | Moodstock 2014</title>
   <meta name="description" content="7th Moodstock electronic music festival. Zaterdag 9 augustus. Wijchmaal - Peer.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- build:css css/moodstock.css -->
   <link rel="stylesheet" href="css/general.css">
+  <!-- endbuild -->
   <script src="js/modernizr.js"></script>
   <!--[if lte IE 8]>
-    <script src="js/oldie.min.js"></script>
+    <script src="js/oldie.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -127,9 +129,11 @@
   </main>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>if (typeof jQuery == 'undefined') {document.write(unescape("%3Cscript src='js/jquery-1.11.0.min.js' type='text/javascript'%3E%3C/script%3E")); }</script>
-  <script src="js/plugins.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNvsP8sGCtsJ4AIJXdai4VaTPozp5WeG4"></script>
+  <!-- build:js js/moodstock.js -->
+  <script src="js/plugins.js"></script>
   <script src="js/general.js"></script>
+  <!-- endbuild -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

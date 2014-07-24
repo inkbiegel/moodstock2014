@@ -3,7 +3,7 @@
   require_once 'php/Mobile_Detect.php';
   $detect = new Mobile_Detect;
   if($detect->isMobile() && !$detect->isTablet() || preg_match("/MSIE [6-9]\.0|Opera Mini/",$_SERVER['HTTP_USER_AGENT'])){
-    header("Location: http://www.moodstock.eu/2014/line-up.html");
+    header("Location: http://www.moodstock.eu/line-up.html");
     die();
   }
 ?>
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/intro.css">
   <script src="js/modernizr.js"></script>
   <!--[if lte IE 8]>
-    <script src="js/oldie.min.js"></script>
+    <script src="js/oldie.js"></script>
   <![endif]-->
 </head>
 <body id="home">
