@@ -16,6 +16,7 @@ module.exports = function(grunt) {
       root: '../root',
       dist: '../dist'
     },
+    clean: {},
     useminPrepare: {
       html: 'info.html',
       options: {

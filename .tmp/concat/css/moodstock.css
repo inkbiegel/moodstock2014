@@ -285,17 +285,6 @@ main, .inner {
 .content strong, .content a { color: #ed008c; }
 .content a { text-decoration: underline; }
 .content a:hover { text-decoration: none; }
-.content .notice, .content .notice:link {
-  display: inline-block;
-  padding: 0.25em 0.5em;
-  font: bold 1.25em/1 'Quadon', serif;
-  color: #fff;
-  background: #ed008c;
-  text-decoration: none;
-  -webkit-transition: background 0.2s ease-in;
-          transition: background 0.2s ease-in;
-}
-.content .notice:hover { background: #672c87; }
 .defList { margin: 0 0 1em; }
 .defList > li {
   position: relative;
@@ -542,11 +531,6 @@ main, .inner {
 
 /********** PAGE SPECIFIC *********
 /* line-up */
-#lineUp > .notice {
-  float: none;
-  margin: -1em 0 2em;
-}
-.artistGrid { clear: both; }
 .artistGrid > li { position: relative; }
 .artistGrid > .active { z-index: 1; }
 .artistOuter {
@@ -817,11 +801,6 @@ main, .inner {
   .hexSimpleGrid.small > li:nth-child(3n), .hexSimpleGrid.small > li:nth-child(3n+1) { margin-left: 0.5em; clear: none; }
   .hexSimpleGrid.small > li:nth-child(4n+1) { margin-left: 0; clear: left; }
   .hexSimpleGrid.small > li:nth-child(4n+3) { margin-left: 4.9375em; clear: left; }
-
-  #lineUp > .notice {
-    float: right;
-    margin: -3em 0 0;
-  }
 }
 @media (min-width: 31.5625em) { /* 505px */
   table tbody th { padding-left: 1em; }
@@ -934,8 +913,6 @@ main, .inner {
   .hexSimpleGrid.small > li:nth-child(8n+1) { margin-left: 0; clear: left; }
 
   .content h1 { font-size: 2.5em; }
-
-  .notice, .notice:link { font-size: 1.5em; }
 }
 @media (min-width: 56em) { /* 896px */
   .hexGrid > li:nth-child(5n+4), .hexGrid > li:nth-child(5n+1) { margin-left: 1.1em; }
