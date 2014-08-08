@@ -17,8 +17,12 @@
   <meta name="viewport" content="width=device-width">
   <title>7th Moodstock electronic music festival</title>
   <meta name="description" content="7th Moodstock electronic music festival. Zaterdag 9 augustus. Wijchmaal - Peer.">
+  <!-- build:css css/general.css -->
   <link rel="stylesheet" href="css/general.css">
+  <!-- endbuild -->
+  <!-- build:css css/intro.css -->
   <link rel="stylesheet" href="css/intro.css">
+  <!-- endbuild -->
   <script src="js/modernizr.js"></script>
   <!--[if lte IE 8]>
     <script src="js/oldie.js"></script>
@@ -66,8 +70,10 @@
   </main>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>if (typeof jQuery == 'undefined') {document.write(unescape("%3Cscript src='js/jquery-1.11.0.min.js' type='text/javascript'%3E%3C/script%3E")); }</script>
+  <!-- build:js js/general.js -->
   <script src="js/plugins.js"></script>
   <script src="js/general.js"></script>
+  <!-- endbuild -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

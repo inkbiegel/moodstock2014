@@ -1,24 +1,22 @@
 module.exports = function(grunt) {
-
-        // ,
-        // flow: {
-        //   html: {
-        //     steps: {
-        //       css: ['concat','cssmin'],
-        //       js: ['concat','uglify']
-        //     }
-        //   }
-        // }
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     dirs: {
       root: '../root',
       dist: '../dist'
     },
-    clean: {},
+    clean: {
+      build: {
+        src:  ['<%= dirs.dist %>/css/*.css', '<%= dirs.dist %>/js/*.general.js']
+      },
+      options: {
+        force: true
+      }
+    },
     useminPrepare: {
-      html: 'info.html',
+      html: {
+        src: ['info.html','index.php']
+      },
       options: {
         root: '<%= dirs.root %>',
         dest: '<%= dirs.dist %>'
@@ -29,8 +27,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= dirs.root %>',
         src: ['css/*'],
-        dest: '<%= dirs.dist %>',
-        ext: '.min.css'
+        dest: '<%= dirs.dist %>'
       }
     },
     concat: {
@@ -53,7 +50,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= dirs.root %>',
-          src: ['img/**.{png,jpg,gif,svg}'],
+          src: ['**/**.{png,jpg,gif,svg}','!node_modules'],
           dest: '<%= dirs.dist %>'
         }]
       }
@@ -70,26 +67,26 @@ module.exports = function(grunt) {
         algorithm: 'md5',
         length: 8
       },
-      assets: {
+      dist: {
         files: [{
           src: [
-            '<%= dirs.dist %>/js/moodstock.js',
+            '<%= dirs.dist %>/js/general.js',
             '<%= dirs.dist %>/css/*.css'
           ]
         }]
       }
     },
     usemin: {
-      html: ['<%= dirs.dist %>/info.html'],
+      html: ['<%= dirs.dist %>/info.html', '<%= dirs.dist %>/index.php'],
       css: ['<%= dirs.dist %>/css/*.css'],
-      js: ['<%= dirs.dist %>/js/*.js'],
+      js: ['<%= dirs.dist %>/js/*.general.js'],
       options: {
-          assetsDirs: ['<%= dirs.dist %>', '<%= dirs.dist %>/css', '<%= dirs.dist %>/js']
+        assetsDirs: ['<%= dirs.dist %>']
       }
     }
   });
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['clean', 'newer:useminPrepare', 'newer:cssmin', 'newer:concat', 'newer:uglify', 'newer:imagemin', 'newer:copy', 'rev', 'newer:usemin']);
+  grunt.registerTask('build', ['clean', 'newer:useminPrepare', 'newer:cssmin', 'newer:concat', 'newer:uglify', 'newer:imagemin', 'newer:copy', 'newer:rev', 'usemin']);
 };

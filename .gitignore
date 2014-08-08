@@ -39,3 +39,4 @@ Thumbs.db
 # Grunt #
 #########
 node_modules
+.tmp
